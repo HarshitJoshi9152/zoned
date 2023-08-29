@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoned</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <section class="container head">
+    <header>
+      <h1>
+        Zoned
+      </h1>
+    </header>
+
+    <!-- Timezones -->
+
+  </section>
+
+  <main class="container main">
+    <h2 class="center">People timezones</h2>
+
+    <!-- x-data="{ people: [] }"
+      x-init="people = getPeople()" -->
+    <div class="timezones">
+      <!-- Header with time stamps -->
+      <!-- ? Horizontally scrollable -->
+
+      <div class="options" x-data="{ formOpen: false }">
+        <button>Timezones </button>
+        <button>Filter</button>
+        <button>Export</button>
+        <button @click="formOpen = ! formOpen">
+          Add Person
+        </button>
+        <!-- ! ADD MEMBER MODAL -->
+        <div class="user-form-container" x-show="formOpen" x-transition>
+          <div class="user-form" @click.outside="formOpen = false" x-data="{
+              keepOpen: false,
+              resetValues: true,
+              resetForm: () => { 
+                $refs.name.value = ''
+                $refs.timezone.value = ''
+                $refs.wake.value = ''
+                $refs.sleep.value = ''
+              }
+            }">
+            <h3>Add Member</h3>
+
+            <div class="field">
+              <label for="#name">name</label> <br>
+              <input x-ref="name" type="text" name="name" id="name"> <br />
+            </div>
+
+            <div class="field">
+              <label for="#timezone">timezone</label> <br>
+              <input x-ref="timezone" type="text" name="timezone" id="timezone"> <br />
+            </div>
+
+            <div class="field">
+              <label for="#wake">wake</label> <br>
+              <input x-ref="wake" type="time" name="wake" id="wake"> <br />
+            </div>
+
+            <div class="field">
+              <label for="#sleep">sleep</label> <br>
+              <input x-ref="sleep" type="time" name="sleep" id="sleep"> <br />
+            </div>
+
+            <div class="field flex-bar">
+              <div class="field">
+                <label for="#keepOpen">keep open </label>
+                <input type="checkbox" name="keepOpen" id="keepOpen" x-model="keepOpen">
+              </div>
+
+              <!-- Reset Values -->
+              <div class="field">
+                <label for="#resetValues">reset Values </label>
+                <input type="checkbox" name="resetValues" id="resetValues" x-model="resetValues">
+              </div>
+            </div>
+            <br>
+            <!-- You can Only press enter to submit on the last element ! -->
+            <button type="button"
+              @click="keepOpen ? (resetValues && resetForm()) : (resetForm() || (formOpen = false))">Enter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ! ABSOLUTE MODAL FOR ADDING PEOPLE -->
+
+
+      <!-- ADD for in with alpine -->
+      <div class="person-row">
+
+      </div>
+    </div>
+  </main>
+
+  <!-- SCRIPTS -->
+  <script type="module" src="index.mjs">Enable JS to use this website</script>
+  <script src="//unpkg.com/alpinejs" defer></script>
+</body>
+
+</html>

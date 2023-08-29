@@ -1,0 +1,144 @@
+
+/* css reset */
+
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+html {
+  font-size: 1.4rem;
+}
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+/* Base Styling, Font size, Font Fam, css variables --Icons and Button */
+/* Dark theme stuff too */
+
+
+
+
+/* COmponent Styling */
+
+.container {
+  margin: auto;
+  max-width: 80vw;
+}
+
+.center {
+  text-align: center;
+}
+
+.flex-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1;
+}
+
+.flex-bar > * {
+  flex: 1;
+}
+
+  /* Overriding default styles */
+  button {
+    padding: 1em;
+    border-radius: .5em;
+    border: none;
+    font-weight: bolder;
+    font-size: .7rem;
+
+    /* Well i do want them to take full width tho */
+    flex: 1;
+    cursor: pointer;
+  }
+
+/* Business Styles */
+
+header {
+  text-align: center;
+}
+
+header > h1 {
+  font-size: 2rem;
+}
+
+.head {
+  padding: 1em;
+}
+
+.main {
+  padding: 1em;
+}
+
+
+
+/* Timezones Component */
+
+.timezones {
+  /* Box */
+  margin-top: 1em;
+  padding: 1em;
+  /* Structure */
+  max-width: 80vw;
+  border-radius: .5em;
+  /* Style */
+  overflow-x: auto;
+}
+
+.options {
+  display: flex;
+  justify-content: space-evenly;
+  gap: .5rem;
+}
+
+/* USER REGISTRATION FORM MODAL  */
+
+.user-form-container {
+  inset: 0;
+  position: absolute;
+  margin: auto;
+  /* Center children */
+  display: grid;
+
+  place-content: center;
+}
+
+.user-form {
+  width: minmax(50vw);
+  height: minmax(60vh);
+
+  background-color: aliceblue;
+  border: .1em solid black;
+  border-radius: .5em;
+
+  padding: 1em;
+
+  text-transform: capitalize;
+  font-size: .9rem;
+}
+
+/* weird... */
+/* .field:not(:last-child) { */
+.field {
+  margin-top: 0.5em;
+}
+
+.field > input {
+  margin-top: 0.2em;
+  font-size: 1.3rem; 
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+}
+
+.user-form > h3 {
+  text-align: center;
+}
+
+.user-form > button {
+  width: 100%;
+}
